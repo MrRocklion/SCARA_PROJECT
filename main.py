@@ -1,4 +1,4 @@
-###########################################################################
+import sys
 
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
@@ -11,41 +11,42 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
     QLabel, QMainWindow, QPushButton, QSizePolicy,
     QSlider, QSpacerItem, QStackedWidget, QVBoxLayout,
     QWidget)
+styles = '''
+#Container{
+	background-color: #DADADA ;
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(921, 600)
-        MainWindow.setStyleSheet(u"#Container{\n"
-"	background-color: #DADADA ;\n"
-"\n"
-"}\n"
-"#barTitle{\n"
-"background-color: rgb(72, 138, 153);\n"
-"}\n"
-"#Menu{\n"
-"background-color: rgb(236, 240, 241);\n"
-"border-radius:15px;\n"
-"}\n"
-"#Body{\n"
-"background-color: rgb(236, 240, 241);\n"
-"border-radius:15px;\n"
-"}\n"
-"QLabel{\n"
-"font-family:Roboto;\n"
-"}\n"
-"#titulo{\n"
-" 	color: rgb(236, 240, 241);\n"
-"	font-size: 19px;\n"
-"	font-weight: bold;\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"")
-        self.centralwidget = QWidget(MainWindow)
+}
+#barTitle{
+background-color: rgb(72, 138, 153);
+}
+#Menu{
+background-color: rgb(236, 240, 241);
+border-radius:15px;
+}
+#Body{
+background-color: rgb(236, 240, 241);
+border-radius:15px;
+}
+QLabel{
+font-family:Roboto;
+}
+#titulo{
+ 	color: rgb(236, 240, 241);
+	font-size: 19px;
+	font-weight: bold;
+}
+
+
+
+
+'''
+class Ui_MainWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.resize(921, 600)
+        self.setStyleSheet(styles)
+        self.inicio = QFrame()
+        self.centralwidget = QWidget(self.inicio)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(0)
@@ -89,7 +90,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setSpacing(0)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.titulo = QLabel(self.Title)
+        self.titulo = QLabel("Panel de control Scara")
         self.titulo.setObjectName(u"titulo")
         self.titulo.setAlignment(Qt.AlignCenter)
 
@@ -191,7 +192,7 @@ class Ui_MainWindow(object):
 
         self.controls.addWidget(self.label_5, 5, 0, 1, 1)
 
-        self.label_2 = QLabel(self.frame)
+        self.label_2 = QLabel("Panel De Control")
         self.label_2.setObjectName(u"label_2")
         self.label_2.setAlignment(Qt.AlignCenter)
 
@@ -254,11 +255,9 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.Container)
 
-        MainWindow.setCentralWidget(self.centralwidget)
+        self.setCentralWidget(self.centralwidget)
+        self.show()
 
-        self.retranslateUi(MainWindow)
-
-        QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
     def retranslateUi(self, MainWindow):
@@ -276,3 +275,10 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Base", None))
     # retranslateUi
 
+
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = Ui_MainWindow()
+    sys.exit(app.exec())

@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/control.svg</file>
+    <file>icons/info.svg</file>
+    <file>icons/log-out.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/settings.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/settings.svg</file>
+  </qresource>
+</RCC>
