@@ -401,7 +401,7 @@ QTableWidget{
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="page">
                 <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -427,6 +427,44 @@ QTableWidget{
                    <layout class="QVBoxLayout" name="verticalLayout_5">
                     <item>
                      <layout class="QGridLayout" name="controls">
+                      <item row="10" column="0">
+                       <widget class="QLabel" name="label_10">
+                        <property name="text">
+                         <string>Valores de los servomotores</string>
+                        </property>
+                        <property name="alignment">
+                         <set>Qt::AlignCenter</set>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="9" column="0">
+                       <widget class="QFrame" name="frame_5">
+                        <property name="frameShape">
+                         <enum>QFrame::StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                         <enum>QFrame::Raised</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="12" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_12">
+                        <item>
+                         <widget class="QLabel" name="label_14">
+                          <property name="text">
+                           <string>Servo2</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="s2">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
                       <item row="3" column="0">
                        <widget class="QLabel" name="label_4">
                         <property name="text">
@@ -466,27 +504,57 @@ QTableWidget{
                        </widget>
                       </item>
                       <item row="2" column="0">
-                       <widget class="QSlider" name="horizontalSlider">
+                       <widget class="QSlider" name="servo1">
+                        <property name="maximum">
+                         <number>180</number>
+                        </property>
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="11" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_11">
+                        <item>
+                         <widget class="QLabel" name="label_11">
+                          <property name="text">
+                           <string>Servo1</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="s1">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="8" column="0">
+                       <layout class="QVBoxLayout" name="customBtn"/>
+                      </item>
+                      <item row="6" column="0">
+                       <widget class="QSlider" name="servo3">
+                        <property name="maximum">
+                         <number>180</number>
+                        </property>
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
                        </widget>
                       </item>
                       <item row="4" column="0">
-                       <widget class="QSlider" name="horizontalSlider_2">
+                       <widget class="QSlider" name="servo2">
+                        <property name="maximum">
+                         <number>180</number>
+                        </property>
                         <property name="orientation">
                          <enum>Qt::Horizontal</enum>
                         </property>
                        </widget>
                       </item>
-                      <item row="6" column="0">
-                       <widget class="QSlider" name="horizontalSlider_3">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="9" column="0">
+                      <item row="15" column="0">
                        <spacer name="verticalSpacer">
                         <property name="orientation">
                          <enum>Qt::Vertical</enum>
@@ -499,8 +567,41 @@ QTableWidget{
                         </property>
                        </spacer>
                       </item>
-                      <item row="8" column="0">
-                       <layout class="QVBoxLayout" name="customBtn"/>
+                      <item row="13" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_13">
+                        <item>
+                         <widget class="QLabel" name="label_16">
+                          <property name="text">
+                           <string>Servo3</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="s3">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="14" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_14">
+                        <item>
+                         <widget class="QLabel" name="label_18">
+                          <property name="text">
+                           <string>Gripper</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="gripper">
+                          <property name="text">
+                           <string>On</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
                      </layout>
                     </item>
