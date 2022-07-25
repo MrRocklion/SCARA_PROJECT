@@ -8,4 +8,7 @@
     <file>icons/menu.svg</file>
     <file>icons/settings.svg</file>
   </qresource>
+  <qresource prefix="images">
+    <file>images/2251366.jpeg</file>
+  </qresource>
 </RCC>
