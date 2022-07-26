@@ -64,18 +64,36 @@ def enviarComando():
     print(cmd)
     ser.write(string.encode())
 def setS1(angle):
-    pos_s1=angle
+    if angle <= 10:
+        pos_s1 = 10
+    else:
+        pos_s1 = angle
     dato = f"1,{pos_s1}"
     window.s1.setText(str(pos_s1))
     serial_enviar(dato)
     print(dato)
 
 def setS2(angle):
-    pos_s2=angle
+    if angle <= 10:
+        pos_s2=10
+    elif angle >= 150:
+        pos_s2 = 150
+    else:
+        pos_s2 = angle
     dato = f"2,{pos_s2}"
     window.s2.setText(str(pos_s2))
     serial_enviar(dato)
     print(dato)
+
+def homePosition():
+    print('5')
+    window.servo1.setValue(90)
+    window.servo2.setValue(90)
+    window.servo3.setValue(90)
+    window.s2.setText(str(90))
+    window.s1.setText(str(90))
+    window.s3.setText(str(90))
+    serial_enviar('5')
 
 def setS3(angle):
     pos_s3 = angle
@@ -85,7 +103,14 @@ def setS3(angle):
     print(dato)
 def set_gripper(value):
     window.gripper.setText(str(value))
-    print('4,{}'.format(pos_s1))
+    if value == True:
+        print('4,1')
+        serial_enviar('4,1')
+    if value == False:
+        print('4,0')
+        serial_enviar('4,0')
+    else:
+        pass
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     ui_file_name = "mainwindow.ui"
@@ -108,6 +133,7 @@ if __name__ == "__main__":
     window.servo1.sliderReleased.connect(lambda: setS1(window.servo1.value()))
     window.servo2.sliderReleased.connect(lambda: setS2(window.servo2.value()))
     window.servo3.sliderReleased.connect(lambda: setS3(window.servo3.value()))
+    window.homeBtn.clicked.connect(lambda : homePosition())
     gripper.clicked.connect(lambda : set_gripper(gripper.isChecked()))
     window.salir.clicked.connect(lambda: window.close())
     window.conectar.clicked.connect(lambda: serial_init())
